@@ -6,8 +6,10 @@ namespace poc.ga4.ev.EventModels
 {
     internal class AddShippingInfoEventModel
     {
-		[JsonProperty("event")] public string Event = EventTypes.AddShippingInfo;
+		[JsonProperty("event")] 
+		public string Event = EventTypes.AddShippingInfo;
 
-		[JsonProperty("ecommerce")] public AddShippingInfoECommmerce ECommerce { get; set; }
+		[JsonProperty("ecommerce")] 
+		public AddShippingInfoECommmerce ECommerce { get; set; }
     }
 }

@@ -6,8 +6,10 @@ namespace poc.ga4.ev.EventModels
 {
 	internal class PurchaseEventModel
 	{
-		[JsonProperty("event")] public string Event = EventTypes.Purchase;
+		[JsonProperty("event")] 
+		public string Event = EventTypes.Purchase;
 
-		[JsonProperty("ecommerce")] public PurchaseECommerce ECommerce { get; set; }
+		[JsonProperty("ecommerce")] 
+		public PurchaseECommerce ECommerce { get; set; }
 	}
 }
