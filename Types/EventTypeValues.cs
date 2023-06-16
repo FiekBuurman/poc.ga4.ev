@@ -2,7 +2,7 @@
 
 namespace poc.ga4.ev.Types
 {
-	internal static class EventTypes
+	internal static class EventTypeValues
 	{
 		/// <summary>
         /// When the user views a list of products.

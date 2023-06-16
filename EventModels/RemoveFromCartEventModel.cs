@@ -7,7 +7,7 @@ namespace poc.ga4.ev.EventModels
     internal class RemoveFromCartEventModel
     {
 		[JsonProperty("event")]
-		public string Event = EventTypes.RemoveFromCart;
+		public string Event = EventTypeValues.RemoveFromCart;
 
 		[JsonProperty("ecommerce")]
 		public RemoveFromCartECommerce ECommerce { get; set; }

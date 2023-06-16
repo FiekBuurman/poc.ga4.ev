@@ -7,7 +7,7 @@ namespace poc.ga4.ev.EventModels
 	internal class AddPaymentInfoEventModel
 	{
 		[JsonProperty("event")] 
-		public string Event = EventTypes.AddPaymentInfo;
+		public string Event = EventTypeValues.AddPaymentInfo;
 
 		[JsonProperty("ecommerce")] 
 		public AddPaymentInfoECommerce ECommerce { get; set; }

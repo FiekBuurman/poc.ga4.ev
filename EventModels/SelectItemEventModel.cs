@@ -7,7 +7,7 @@ namespace poc.ga4.ev.EventModels
     internal class SelectItemEventModel
     {
 		[JsonProperty("event")]
-		public string Event = EventTypes.SelectItem;
+		public string Event = EventTypeValues.SelectItem;
 
 		[JsonProperty("ecommerce")]
 		public SelectItemECommerce ECommerce { get; set; }

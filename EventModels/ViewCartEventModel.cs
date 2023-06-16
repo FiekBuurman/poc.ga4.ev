@@ -7,7 +7,7 @@ namespace poc.ga4.ev.EventModels
     internal class ViewCartEventModel
     {
 		[JsonProperty("event")]
-		public string Event = EventTypes.ViewCart;
+		public string Event = EventTypeValues.ViewCart;
 
 		[JsonProperty("ecommerce")]
 		public ViewCartECommerce ECommerce { get; set; }
