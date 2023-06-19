@@ -1,0 +1,243 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MMLNCCG');</script>
+<!-- End Google Tag Manager -->
+    <meta name="viewport" content="width=device-width" />
+    <title>Home Page</title>
+</head>
+<body>
+    <div>
+        <h1>Welcome to the MOS GA4 SIMPLE test site</h1>
+        <p class="lead">Click below to take action</p>
+        <button id="viewItemButton">View Item</button>
+        <button id="viewItemListButton">View Item List</button>
+        <button id="selectItemButton">Select Item</button>
+        <button id="addToCartButton">Add to Cart</button>
+        <button id="removeFromCartButton">Remove from Cart</button>
+        <button id="viewCartButton">View Cart</button>
+        <button id="beginCheckoutButton">Begin Checkout</button>
+        <button id="addPaymentInfoButton">Add Payment Info</button>
+        <button id="addShippingInfoButton">Add Shipping Info</button>
+        <button id="purchaseButton">Purchase</button>
+    </div>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function triggerViewItem() {
+            dataLayer.push({
+                event: 'view_item',
+                ecommerce: {
+                    items: [{
+                        item_id: '1010',
+                        item_name: 'Cake',
+                        item_category: 'Stukswerk',
+                        price: '5.00',
+                        quantity: '1'
+                    }]
+                }
+            });
+        }
+
+        function triggerViewItemList() {
+            dataLayer.push({
+                event: 'view_item_list',
+                ecommerce: {
+                    item_list_id: '1',
+                    item_list_name: 'Pastries',
+                    items: [{
+                        item_id: '1010',
+                        item_name: 'Cake',
+                        item_category: 'Stukswerk',
+                        price: '5.00',
+                        quantity: '1'
+                    }]
+                }
+            });
+        }
+
+        function triggerSelectItem() {
+            dataLayer.push({
+                event: 'select_item',
+                ecommerce: {
+                    items: [{
+                        item_id: '1010',
+                        item_name: 'Cake',
+                        item_category: 'Stukswerk',
+                        price: '5.00',
+                        quantity: '1'
+                    }]
+                }
+            });
+        }
+
+        function triggerAddToCart() {
+            dataLayer.push({
+                event: 'add_to_cart',
+                ecommerce: {
+                    currencyCode: 'EUR',
+                    items: [{
+                        item_id: '1010',
+                        item_name: 'Cake',
+                        item_category: 'Stukswerk',
+                        price: '5.00',
+                        quantity: '1'
+                    }]
+                }
+            });
+        }
+
+        function triggerRemoveFromCart() {
+            dataLayer.push({
+                event: 'remove_from_cart',
+                ecommerce: {
+                    items: [{
+                        item_id: '1010',
+                        item_name: 'Cake',
+                        item_category: 'Stukswerk',
+                        price: '5.00',
+                        quantity: '1'
+                    }]
+                }
+            });
+        }
+
+        function triggerViewCart() {
+            dataLayer.push({
+                event: 'view_cart',
+                ecommerce: {
+                    items: [{
+                        item_id: '1010',
+                        item_name: 'Cake',
+                        item_category: 'Stukswerk',
+                        price: '5.00',
+                        quantity: '1'
+                    }]
+                }
+            });
+        }
+
+        function triggerBeginCheckout() {
+            dataLayer.push({
+                event: 'begin_checkout',
+                ecommerce: {
+                    items: [{
+                        item_id: '1010',
+                        item_name: 'Cake',
+                        item_category: 'Stukswerk',
+                        price: '5.00',
+                        quantity: '1'
+                    }]
+                }
+            });
+        }
+
+        function triggerAddPaymentInfo() {
+            dataLayer.push({
+                event: 'add_payment_info',
+                ecommerce: {
+                    items: [{
+                        item_id: '1010',
+                        item_name: 'Cake',
+                        item_category: 'Stukswerk',
+                        price: '5.00',
+                        quantity: '1'
+                    }]
+                }
+            });
+        }
+
+        function triggerAddShippingInfo() {
+            dataLayer.push({
+                event: 'add_shipping_info',
+                ecommerce: {
+                    shipping_tier: 'Ground',
+                    items: [{
+                        item_id: '1010',
+                        item_name: 'Cake',
+                        item_category: 'Stukswerk',
+                        price: '5.00',
+                        quantity: '1'
+                    }]
+                }
+            });
+        }
+
+         function triggerPurchase() {
+            dataLayer.push({ ecommerce: null }); // Clear the previous ecommerce object.
+dataLayer.push({
+  event: "purchase",
+  ecommerce: {
+    transaction_id: generateTransactionId(),
+    affiliation: "Google Merchandise Store",
+    value: 15.98,
+    tax: 2.77,
+    shipping: 5.99,
+    currency: "EUR",
+    coupon: "SUMMER_SALE",
+    shipping_tier: "PostNL",
+    payment_type: "Credit Card",
+    customer_mail: "John@doe.com",
+    customer_phone: "0031612345678",
+    customer_first_name: "John",
+    customer_last_name: "Doe",
+    customer_adress: "Prins Bernhardlaan 59",
+    customer_city: "Borne",
+    customer_region: "Overijssel",
+    customer_postal_code: "7622BE",
+    customer_country: "NL",
+    items: [{
+      item_id: "SKU_12345",
+      item_name: "Stan and Friends Tee",
+      affiliation: "Google Merchandise Store",
+      coupon: "SUMMER_FUN",
+      currency: "EUR",
+      discount: 2.22,
+      index: 0,
+      item_brand: "Google",
+      item_category: "Apparel",
+      item_category2: "Adult",
+      item_category3: "Shirts",
+      item_category4: "Crew",
+      item_category5: "Short sleeve",
+      item_list_id: "related_products",
+      item_list_name: "Related Products",
+      item_variant: "green",
+      location_id: "L_12345",
+      price: 9.99,
+      quantity: 1
+    }]
+  }
+});
+
+}
+
+
+
+        function generateTransactionId() {
+            var transactionId = '';
+            for (var i = 0; i < 10; i++) {
+                transactionId += Math.floor(Math.random() * 10);
+            }
+            return transactionId;
+        }
+
+        document.getElementById('viewItemButton').addEventListener('click', triggerViewItem);
+        document.getElementById('viewItemListButton').addEventListener('click', triggerViewItemList);
+        document.getElementById('selectItemButton').addEventListener('click', triggerSelectItem);
+        document.getElementById('addToCartButton').addEventListener('click', triggerAddToCart);
+        document.getElementById('removeFromCartButton').addEventListener('click', triggerRemoveFromCart);
+        document.getElementById('viewCartButton').addEventListener('click', triggerViewCart);
+        document.getElementById('beginCheckoutButton').addEventListener('click', triggerBeginCheckout);
+        document.getElementById('addPaymentInfoButton').addEventListener('click', triggerAddPaymentInfo);
+        document.getElementById('addShippingInfoButton').addEventListener('click', triggerAddShippingInfo);
+        document.getElementById('purchaseButton').addEventListener('click', triggerPurchase);
+    </script>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MMLNCCG"height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+</body>
+</html>
