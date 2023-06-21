@@ -2,7 +2,7 @@
 
 namespace poc.ga4.ev.Models
 {
-    internal class Customer
+    internal class CustomerECommerce : BaseECommerce
     {
 		[JsonProperty("customer_mail")]
 		public string CustomerMail { get; set; }
