@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace poc.ga4.ev.Models
 {
-    internal class BeginCheckoutECommerce
+    internal class BeginCheckoutECommerce : BaseECommerce
     {
 		[JsonProperty("currency")] 
 		public string Currency { get; set; }
@@ -13,8 +13,5 @@ namespace poc.ga4.ev.Models
 
 		[JsonProperty("coupon")] 
 		public string Coupon { get; set; }
-
-		[JsonProperty("items")]
-		public List<Items> Items { get; set; }
-    }
+	}
 }

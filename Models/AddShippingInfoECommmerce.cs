@@ -1,9 +1,8 @@
-﻿using System.Collections.Generic;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace poc.ga4.ev.Models
 {
-    internal class AddShippingInfoECommmerce
+    internal class AddShippingInfoECommmerce : BaseECommerce
     {
 		[JsonProperty("currency")] 
 		public string Currency { get; set; }
@@ -19,8 +18,5 @@ namespace poc.ga4.ev.Models
 
 		[JsonProperty("shipping")] 
 		public decimal Shipping { get; set; }
-
-		[JsonProperty("items")] 
-		public List<Items> Items { get; set; }
-    }
+	}
 }

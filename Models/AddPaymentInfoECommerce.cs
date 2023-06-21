@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace poc.ga4.ev.Models
 {
-	internal class AddPaymentInfoECommerce : Customer
+	internal class AddPaymentInfoECommerce : CustomerECommerce
 	{
 		[JsonProperty("currency")] public string Currency { get; set; }
 
@@ -16,7 +16,5 @@ namespace poc.ga4.ev.Models
 		[JsonProperty("shipping")] public decimal Shipping { get; set; }
 
 		[JsonProperty("payment_type")] public string PaymentType { get; set; }
-
-		[JsonProperty("items")] public List<Items> Items { get; set; }
 	}
 }
