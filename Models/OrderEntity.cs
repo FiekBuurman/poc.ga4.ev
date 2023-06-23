@@ -8,8 +8,8 @@ namespace poc.ga4.ev.Models
 		// TODO this is gonna be the EV OrderEntity
 
 		public string Number { get; set; }
-		public decimal TotalPrice { get; set; }
-		public decimal DeliveryCost { get; set; }
+		public decimal TotalPrice => 15.50m;
+		public decimal DeliveryCost => 2.5m;
 
 		public List<OrderItemEntity> OrderItems => new()
 		{
@@ -17,18 +17,20 @@ namespace poc.ga4.ev.Models
 			{
 				OrderItemId = 123,
 				ProductName = "product123",
-				Price = 1.23m
+				Price = 1.23m,
+				Quantity = 123
 			},
 			new OrderItemEntity
 			{
 				OrderItemId = 456,
 				ProductName = "product456",
-				Price = 4.56m
+				Price = 4.56m,
+				Quantity = 456
 			}
 		};
 
-		public CouponEntity CouponEntity { get; set; }
-		public CustomerEntity CustomerEntity { get; set; }
+		public CouponEntity CouponEntity { get; set; } = new CouponEntity();
+		public CustomerEntity CustomerEntity => new CustomerEntity();
 
 		public string  DeliveryMethod { get; set; }
 		public string PaymentMethod { get; set; }
