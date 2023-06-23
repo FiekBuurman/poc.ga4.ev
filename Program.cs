@@ -10,13 +10,14 @@ namespace poc.ga4.ev
 {
     internal class Program
 	{
-		private static string outputDirectory;
+		private static string _outputDirectory;
+
 		static void Main(string[] args)
 		{
-			outputDirectory = GetDirectory();
+			_outputDirectory = GetDirectory();
 
 			var orderEntity = new OrderEntity();
-			var factory = new EventModelFactory();
+			var factory = new EventModelFactory(new ECommerceFactory());
 			var eventTypes = Enum.GetValues(typeof(EventType));
 
 			foreach (EventType eventType in eventTypes)
@@ -29,7 +30,7 @@ namespace poc.ga4.ev
 		private static void WriteToJsonFile(BaseEventModel baseEventModel)
 		{
 			var jsonString = JsonConvert.SerializeObject(baseEventModel);
-			File.WriteAllText($"{outputDirectory}{baseEventModel.GetType().Name}.json", jsonString);
+			File.WriteAllText($"{_outputDirectory}{baseEventModel.GetType().Name}.json", jsonString);
         }
 
 		private static string GetDirectory()
