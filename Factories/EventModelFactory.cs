@@ -1,16 +1,19 @@
-﻿// Ignore Spelling: poc
-
-using System;
+﻿using System;
 using poc.ga4.ev.EventModels;
-using poc.ga4.ev.Extensions;
+using poc.ga4.ev.interfaces;
 using poc.ga4.ev.Models;
 using poc.ga4.ev.Types;
 
 namespace poc.ga4.ev.Factories
 {
-	internal class EventModelFactory : IEventModelFactory
+    internal class EventModelFactory : IEventModelFactory
 	{
-		private readonly ECommerceFactory _eCommerceFactory = new();
+		private readonly IECommerceFactory _eCommerceFactory;
+
+		public EventModelFactory(IECommerceFactory eCommerceFactory)
+		{
+			_eCommerceFactory = eCommerceFactory;
+		}
 
 		public BaseEventModel Create(EventType eventType, OrderEntity orderEntity)
 		{

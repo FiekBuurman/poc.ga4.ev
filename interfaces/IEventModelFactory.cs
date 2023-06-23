@@ -2,10 +2,10 @@
 using poc.ga4.ev.Models;
 using poc.ga4.ev.Types;
 
-namespace poc.ga4.ev.Factories
+namespace poc.ga4.ev.interfaces
 {
     internal interface IEventModelFactory
-	{
-		BaseEventModel Create(EventType eventType, OrderEntity orderEntity);
-	}
+    {
+        BaseEventModel Create(EventType eventType, OrderEntity orderEntity);
+    }
 }

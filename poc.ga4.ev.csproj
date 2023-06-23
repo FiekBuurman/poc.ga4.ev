@@ -6,11 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MOS.Common.Net40" Version="1.2.52" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="interfaces\" />
     <Folder Include="Extensions\" />
   </ItemGroup>
 

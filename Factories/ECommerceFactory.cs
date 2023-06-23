@@ -1,13 +1,11 @@
-﻿// Ignore Spelling: poc
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using poc.ga4.ev.interfaces;
 using poc.ga4.ev.Models;
-using poc.ga4.ev.Types;
 
 namespace poc.ga4.ev.Factories
 {
-	internal class ECommerceFactory : IECommerceFactory
+    internal class ECommerceFactory : IECommerceFactory
 	{
 		private const string Currency = "EURO";
 
