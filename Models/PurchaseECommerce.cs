@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace poc.ga4.ev.Models
 {
@@ -7,7 +6,7 @@ namespace poc.ga4.ev.Models
 	{
 		[JsonProperty("transaction_id")] public string TransactionId { get; set; }
 
-		[JsonProperty("affiliation")] public string Affiliation { get; set; }
+		//[JsonProperty("affiliation")] public string Affiliation { get; set; }
 
 		[JsonProperty("value")] public decimal Value { get; set; }
 
