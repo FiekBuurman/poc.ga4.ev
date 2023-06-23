@@ -43,90 +43,80 @@ namespace poc.ga4.ev.Factories
 
 		private ViewItemListEventModel CreateViewItemListEventModel(OrderEntity orderEntity)
 		{
-			return new ViewItemListEventModel
+			return new ViewItemListEventModel(EventType.ViewItemList)
 			{
-				Event = EventType.ViewItemList.EnumMemberValue(),
 				ECommerce = _eCommerceFactory.CreateViewItemListECommerce(orderEntity)
 			};
 		}
 
 		private SelectItemEventModel CreateSelectItemEventModel(OrderEntity orderEntity)
 		{
-			return new SelectItemEventModel
+			return new SelectItemEventModel(EventType.SelectItem)
 			{
-				Event = EventType.SelectItem.EnumMemberValue(),
 				ECommerce = _eCommerceFactory.CreateSelectItemECommerce(orderEntity)
 			};
 		}
 
 		private ViewItemEventModel CreateViewItemEventModel(OrderEntity orderEntity)
 		{
-			return new ViewItemEventModel
+			return new ViewItemEventModel(EventType.ViewItem)
 			{
-				Event = EventType.ViewItem.EnumMemberValue(),
 				ECommerce = _eCommerceFactory.CreateViewItemECommerce(orderEntity)
 			};
 		}
 
 		private AddToCartEventModel CreateAddToCartEventModel(OrderEntity orderEntity)
 		{
-			return new AddToCartEventModel
+			return new AddToCartEventModel(EventType.AddToCart)
 			{
-				Event = EventType.AddToCart.EnumMemberValue(),
 				ECommerce = _eCommerceFactory.CreateAddToCartECommerce(orderEntity)
 			};
 		}
 
 		private RemoveFromCartEventModel CreateRemoveFromCartEventModel(OrderEntity orderEntity)
 		{
-			return new RemoveFromCartEventModel
+			return new RemoveFromCartEventModel(EventType.RemoveFromCart)
 			{
-				Event = EventType.RemoveFromCart.EnumMemberValue(),
 				ECommerce = _eCommerceFactory.CreateRemoveFromCartECommerce(orderEntity)
 			};
 		}
 
 		private ViewCartEventModel CreateViewCartEventModel(OrderEntity orderEntity)
 		{
-			return new ViewCartEventModel
+			return new ViewCartEventModel(EventType.ViewCart)
 			{
-				Event = EventType.ViewCart.EnumMemberValue(),
 				ECommerce = _eCommerceFactory.CreateViewCartECommerce(orderEntity)
 			};
 		}
 
 		private BeginCheckoutEventModel CreateBeginCheckoutEventModel(OrderEntity orderEntity)
 		{
-			return new BeginCheckoutEventModel
+			return new BeginCheckoutEventModel(EventType.BeginCheckout)
 			{
-				Event = EventType.BeginCheckout.EnumMemberValue(),
 				ECommerce = _eCommerceFactory.CreateBeginCheckoutECommerce(orderEntity)
 			};
 		}
 
 		private AddShippingInfoEventModel CreateAddShippingInfoEventModel(OrderEntity orderEntity)
 		{
-			return new AddShippingInfoEventModel
+			return new AddShippingInfoEventModel(EventType.AddShippingInfo)
 			{
-				Event = EventType.AddShippingInfo.EnumMemberValue(),
 				ECommerce = _eCommerceFactory.CreateAddShippingInfoECommerce(orderEntity)
 			};
 		}
 
 		private AddPaymentInfoEventModel CreateAddPaymentInfoEventModel(OrderEntity orderEntity)
 		{
-			return new AddPaymentInfoEventModel
+			return new AddPaymentInfoEventModel(EventType.AddPaymentInfo)
 			{
-				Event = EventType.AddPaymentInfo.EnumMemberValue(),
 				ECommerce = _eCommerceFactory.CreateAddPaymentInfoECommerce(orderEntity)
 			};
 		}
 
 		private PurchaseEventModel CreatePurchaseEventModel(OrderEntity orderEntity)
 		{
-			return new PurchaseEventModel
+			return new PurchaseEventModel(EventType.Purchase)
 			{
-				Event = EventType.Purchase.EnumMemberValue(),
 				ECommerce = _eCommerceFactory.CreatePurchaseECommerce(orderEntity)
 			};
 		}
