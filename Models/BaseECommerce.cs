@@ -6,6 +6,6 @@ namespace poc.ga4.ev.Models
 	internal class BaseECommerce
 	{
 		[JsonProperty("items")]
-		public List<Items> Items { get; set; }
+		public List<Item> Items { get; set; }
 	}
 }

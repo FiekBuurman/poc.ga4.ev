@@ -2,7 +2,7 @@
 
 namespace poc.ga4.ev.Models
 {
-	internal class Items
+	internal class Item
     {
         [JsonProperty("item_id")]
         public string ItemId { get; set; }
