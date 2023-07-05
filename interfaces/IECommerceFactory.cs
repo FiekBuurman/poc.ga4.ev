@@ -3,12 +3,8 @@
 namespace poc.ga4.ev.interfaces
 {
     internal interface IECommerceFactory
-    {
-		public ViewItemListECommerce CreateViewItemListECommerce(OrderEntity orderEntity);
-        public SelectItemECommerce CreateSelectItemECommerce(OrderEntity orderEntity);
-        public ViewItemECommerce CreateViewItemECommerce(OrderEntity orderEntity);
-        public AddToCartECommerce CreateAddToCartECommerce(OrderEntity orderEntity);
-        public RemoveFromCartECommerce CreateRemoveFromCartECommerce(OrderEntity orderEntity);
+	{
+		public T CreateECommerce<T>(OrderEntity orderEntity) where T : BaseECommerce, new();
         public ViewCartECommerce CreateViewCartECommerce(OrderEntity orderEntity);
         public BeginCheckoutECommerce CreateBeginCheckoutECommerce(OrderEntity orderEntity);
         public AddShippingInfoECommmerce CreateAddShippingInfoECommerce(OrderEntity orderEntity);

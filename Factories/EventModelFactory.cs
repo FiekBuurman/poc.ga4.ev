@@ -48,7 +48,7 @@ namespace poc.ga4.ev.Factories
 		{
 			return new ViewItemListEventModel(EventType.ViewItemList)
 			{
-				ECommerce = _eCommerceFactory.CreateViewItemListECommerce(orderEntity)
+				ECommerce = _eCommerceFactory.CreateECommerce<ViewItemListECommerce>(orderEntity)
 			};
 		}
 
@@ -56,7 +56,7 @@ namespace poc.ga4.ev.Factories
 		{
 			return new SelectItemEventModel(EventType.SelectItem)
 			{
-				ECommerce = _eCommerceFactory.CreateSelectItemECommerce(orderEntity)
+				ECommerce = _eCommerceFactory.CreateECommerce<SelectItemECommerce>(orderEntity)
 			};
 		}
 
@@ -64,7 +64,7 @@ namespace poc.ga4.ev.Factories
 		{
 			return new ViewItemEventModel(EventType.ViewItem)
 			{
-				ECommerce = _eCommerceFactory.CreateViewItemECommerce(orderEntity)
+				ECommerce = _eCommerceFactory.CreateECommerce<ViewItemECommerce>(orderEntity)
 			};
 		}
 
@@ -72,7 +72,7 @@ namespace poc.ga4.ev.Factories
 		{
 			return new AddToCartEventModel(EventType.AddToCart)
 			{
-				ECommerce = _eCommerceFactory.CreateAddToCartECommerce(orderEntity)
+				ECommerce = _eCommerceFactory.CreateECommerce<AddToCartECommerce>(orderEntity)
 			};
 		}
 
@@ -80,7 +80,7 @@ namespace poc.ga4.ev.Factories
 		{
 			return new RemoveFromCartEventModel(EventType.RemoveFromCart)
 			{
-				ECommerce = _eCommerceFactory.CreateRemoveFromCartECommerce(orderEntity)
+				ECommerce = _eCommerceFactory.CreateECommerce<RemoveFromCartECommerce>(orderEntity)
 			};
 		}
 

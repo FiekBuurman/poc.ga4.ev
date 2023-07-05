@@ -9,135 +9,106 @@ namespace poc.ga4.ev.Factories
 	{
 		private const string Currency = "EURO";
 
-		public ViewItemListECommerce CreateViewItemListECommerce(OrderEntity orderEntity)
+		public T CreateECommerce<T>(OrderEntity orderEntity) where T : BaseECommerce, new()
 		{
-			var viewItemListECommerce = new ViewItemListECommerce();
-			SetItems(viewItemListECommerce, orderEntity.OrderItems);
-			return viewItemListECommerce;
+			return CreateBaseECommerce<T>(orderEntity);
 		}
-
-		public SelectItemECommerce CreateSelectItemECommerce(OrderEntity orderEntity)
-		{
-			var selectItemECommerce = new SelectItemECommerce();
-			SetItems(selectItemECommerce, orderEntity.OrderItems);
-			return selectItemECommerce;
-		}
-
-		public ViewItemECommerce CreateViewItemECommerce(OrderEntity orderEntity)
-		{
-			var viewItemECommerce = new ViewItemECommerce();
-			SetItems(viewItemECommerce, orderEntity.OrderItems);
-			return viewItemECommerce;
-		}
-
-		public AddToCartECommerce CreateAddToCartECommerce(OrderEntity orderEntity)
-		{
-			var addToCartECommerce = new AddToCartECommerce();
-			SetItems(addToCartECommerce, orderEntity.OrderItems);
-			return addToCartECommerce;
-		}
-
-		public RemoveFromCartECommerce CreateRemoveFromCartECommerce(OrderEntity orderEntity)
-		{
-			var removeFromCartECommerce = new RemoveFromCartECommerce();
-			SetItems(removeFromCartECommerce, orderEntity.OrderItems);
-			return removeFromCartECommerce;
-		}
-
+		
 		public ViewCartECommerce CreateViewCartECommerce(OrderEntity orderEntity)
 		{
-			var viewCartECommerce = new ViewCartECommerce
-			{
-				Currency = Currency,
-				Value = orderEntity.TotalPrice
-            };
-			SetItems(viewCartECommerce, orderEntity.OrderItems);
+			var viewCartECommerce = CreateBaseECommerce<ViewCartECommerce>(orderEntity);
+
+			viewCartECommerce.Currency = Currency;
+			viewCartECommerce.Value = orderEntity.TotalPrice;
+
 			return viewCartECommerce;
 		}
 
 		public BeginCheckoutECommerce CreateBeginCheckoutECommerce(OrderEntity orderEntity)
 		{
-			var beginCheckoutECommerce = new BeginCheckoutECommerce
-			{
-				Currency = Currency,
-				Value = orderEntity.TotalPrice,
-				Coupon = orderEntity.CouponEntity.CouponName
-			};
-			SetItems(beginCheckoutECommerce, orderEntity.OrderItems);
+			var beginCheckoutECommerce = CreateBaseECommerce<BeginCheckoutECommerce>(orderEntity);
+
+			beginCheckoutECommerce.Currency = Currency;
+			beginCheckoutECommerce.Value = orderEntity.TotalPrice;
+			beginCheckoutECommerce.Coupon = orderEntity.CouponEntity.CouponName;
+
 			return beginCheckoutECommerce;
 		}
 
 		public AddShippingInfoECommmerce CreateAddShippingInfoECommerce(OrderEntity orderEntity)
 		{
-			var addShippingInfoECommerce = new AddShippingInfoECommmerce
-			{
-				Currency = Currency,
-				Value = orderEntity.TotalPrice,
-				Coupon = orderEntity.CouponEntity.CouponName,
-				ShippingTier = orderEntity.DeliveryMethod,
-				Shipping = orderEntity.DeliveryCost,
-			};
-			
-			SetItems(addShippingInfoECommerce, orderEntity.OrderItems);
+			var addShippingInfoECommerce = CreateBaseECommerce<AddShippingInfoECommmerce>(orderEntity);
+
+			addShippingInfoECommerce.Currency = Currency;
+			addShippingInfoECommerce.Value = orderEntity.TotalPrice;
+			addShippingInfoECommerce.Coupon = orderEntity.CouponEntity.CouponName;
+			addShippingInfoECommerce.ShippingTier = orderEntity.DeliveryMethod;
+			addShippingInfoECommerce.Shipping = orderEntity.DeliveryCost;
+
 			return addShippingInfoECommerce;
 		}
-
-
+		
 		public AddPaymentInfoECommerce CreateAddPaymentInfoECommerce(OrderEntity orderEntity)
 		{
-			var eCommerce = new AddPaymentInfoECommerce
-			{
-				Currency = Currency,
-				Value = orderEntity.TotalPrice,
-				Coupon = orderEntity.CouponEntity.CouponName,
-				ShippingTier = orderEntity.DeliveryMethod,
-				Shipping = orderEntity.DeliveryCost,
-				PaymentType = orderEntity.PaymentMethod
-			};
+			var addPaymentInfoECommerce = CreateBaseECommerce<AddPaymentInfoECommerce>(orderEntity);
 
-			SetCustomer(eCommerce, orderEntity.CustomerEntity);
-			SetItems(eCommerce, orderEntity.OrderItems);
+			addPaymentInfoECommerce.Currency = Currency;
+			addPaymentInfoECommerce.Value = orderEntity.TotalPrice;
+			addPaymentInfoECommerce.Coupon = orderEntity.CouponEntity.CouponName;
+			addPaymentInfoECommerce.ShippingTier = orderEntity.DeliveryMethod;
+			addPaymentInfoECommerce.Shipping = orderEntity.DeliveryCost;
+			addPaymentInfoECommerce.PaymentType = orderEntity.PaymentMethod;
 
-			return eCommerce;
+			SetCustomer(addPaymentInfoECommerce, orderEntity.CustomerEntity);
+
+			return addPaymentInfoECommerce;
 		}
 
 		public PurchaseECommerce CreatePurchaseECommerce(OrderEntity orderEntity)
 		{
-			var purchaseECommerce = new PurchaseECommerce
-			{
-				TransactionId = orderEntity.Number,
-				Value = orderEntity.TotalPrice,
-                Tax = 0,
-				Shipping = orderEntity.DeliveryCost,
-				Currency = Currency,
-				Coupon = orderEntity.CouponEntity.CouponName,
+			var purchaseECommerce = CreateBaseECommerce<PurchaseECommerce>(orderEntity);
 
-				ShippingTier = orderEntity.DeliveryMethod,
-				PaymentType = orderEntity.PaymentMethod
-            };
+			purchaseECommerce.TransactionId = orderEntity.Number;
+			purchaseECommerce.Value = orderEntity.TotalPrice;
+			purchaseECommerce.Tax = 0;
+			purchaseECommerce.Shipping = orderEntity.DeliveryCost;
+			purchaseECommerce.Currency = Currency;
+			purchaseECommerce.Coupon = orderEntity.CouponEntity.CouponName;
+			purchaseECommerce.ShippingTier = orderEntity.DeliveryMethod;
+			purchaseECommerce.Shipping = orderEntity.DeliveryCost;
+            purchaseECommerce.PaymentType = orderEntity.PaymentMethod;
+
 			SetCustomer(purchaseECommerce, orderEntity.CustomerEntity);
-			SetItems(purchaseECommerce, orderEntity.OrderItems);
 
 			return purchaseECommerce;
 		}
 
-		private static void SetItems(BaseECommerce baseECommerce, IEnumerable<OrderItemEntity> orderItemEntities)
+		private static T CreateBaseECommerce<T>(OrderEntity orderEntity) where T : BaseECommerce, new()
 		{
-			baseECommerce.Items = orderItemEntities.Select(Convert).ToList();
+			var eCommerce = new T
+			{
+				Items = GetItems(orderEntity.OrderItems)
+			};
+
+			return eCommerce;
 		}
 
-		private static void SetCustomer(CustomerECommerce customerECommerce, CustomerEntity customerEntity)
+        private static void SetCustomer(CustomerECommerce customerECommerce, CustomerEntity customerEntity)
 		{
-			customerECommerce.CustomerAddress = customerEntity.Address;
 			customerECommerce.CustomerMail = string.Empty;
             customerECommerce.CustomerPhone = string.Empty;
             customerECommerce.CustomerFirstName = string.Empty;
-            customerECommerce.CustomerLastName = customerEntity.Address;
-			customerECommerce.CustomerAddress = string.Empty;
+			customerECommerce.CustomerLastName = customerEntity.LastName;
+			customerECommerce.CustomerAddress = customerEntity.Address;
             customerECommerce.CustomerCity = string.Empty;
             customerECommerce.CustomerRegion = string.Empty;
             customerECommerce.CustomerPostalCode = string.Empty;
             customerECommerce.CustomerCountry = string.Empty;
+		}
+		
+        private static List<Item> GetItems(IEnumerable<OrderItemEntity> orderItemEntities)
+		{
+			return orderItemEntities.Select(Convert).ToList();
 		}
 
 		private static Item Convert(OrderItemEntity orderItem)
@@ -149,7 +120,7 @@ namespace poc.ga4.ev.Factories
 				Discount = 0,
 				Index = 0,
 				Price = orderItem.Price,
-				Quantity = orderItem.Quantity,
+				Quantity = orderItem.Quantity
 			};
 		}
 	}
